@@ -1,5 +1,8 @@
-# pokedex
-An application for generating images of a Pokémon's Pokédex entry.
+# Pokédex Badges 🦕
+
+> An application for generating images of a Pokémon's Pokédex entry.
+
+This program runs on [`deno.com/deploy`]!
 
 ## Contributing
 
@@ -18,4 +21,16 @@ cd pokedex
 deployctl run --watch ./mod.ts
 ```
 
-![cool](https://pokedex.deno.dev/porygon)
+## Demo
+
+Below is a demo badge for my favorite Pokémon, Porygon at `https://pokedex.deno.dev/porygon`.
+
+```md
+![Porygon Demo](https://pokedex.deno.dev/porygon)
+```
+
+![Porygon Demo](https://pokedex.deno.dev/porygon)
+
+---
+
+Developed with 💖 by [EthanThatOneKid](https://github.com/EthanThatOneKid/)
