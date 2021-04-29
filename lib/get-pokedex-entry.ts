@@ -4,18 +4,25 @@ export interface PokedexEntry {
   entry: string;
 }
 
+let requestsRecieved = 0;
+let requestsFetchedFromCache = 0;
 const entries = new Map<string, PokedexEntry>();
 
 export const getPokedexEntry = async (
   pokemon: string,
   language: string = "en",
 ): Promise<PokedexEntry | null> => {
-  if (entries.has(pokemon.toLocaleLowerCase())) {
-    return entries.get(pokemon.toLowerCase()) ?? null;
+  logMetrics();
+  const lowerCasePokemon = pokemon.toLowerCase();
+  if (entries.has(lowerCasePokemon)) {
+    requestsFetchedFromCache++;
+    return entries.get(lowerCasePokemon) ?? null;
   }
   try {
     const data = await fetchPokedexData(pokemon);
-    return formatPokedexData(data, language);
+    const formattedData = formatPokedexData(data, language);
+    entries.set(lowerCasePokemon, formattedData);
+    return formattedData;
   } catch {
     return null;
   }
@@ -40,3 +47,13 @@ const formatPokedexData = (data: any, language: string): PokedexEntry => {
 
 const findByLanguage = (data: any[], language: string) =>
   data.find((entry: any) => entry.language.name === language);
+
+const logMetrics = () => {
+  if (requestsRecieved++ % 10 === 0) {
+    console.log({
+      requestsFetchedFromCache,
+      requestsRecieved,
+      ratio: requestsFetchedFromCache * 100 / requestsRecieved,
+    });
+  }
+};
