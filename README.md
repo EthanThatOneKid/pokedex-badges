@@ -23,7 +23,7 @@ deployctl run --watch ./mod.ts
 
 ## Demo
 
-Below is a demo badge for my favorite Pokémon, Porygon at `https://pokedex.deno.dev/porygon`.
+Below is a demo badge for my favorite Pokémon, Porygon at [`pokedex.deno.dev/porygon`](https://pokedex.deno.dev/porygon).
 
 ```md
 ![Porygon Demo](https://pokedex.deno.dev/porygon)
