@@ -2,7 +2,7 @@
 
 > An application for generating images of a Pokémon's Pokédex entry.
 
-This program runs on [`deno.com/deploy`]!
+This program runs on <https://deno.com/deploy>!
 
 ## Contributing
 
