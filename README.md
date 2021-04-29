@@ -11,7 +11,7 @@ This program runs on <https://deno.com/deploy>!
 ```sh
 deno install --allow-read --allow-write --allow-env --allow-net --allow-run --no-check -f https://deno.land/x/deploy/deployctl.ts
 
-git clone https://github.com/EthanThatOneKid/pokedex.git
+git clone https://github.com/EthanThatOneKid/pokedex-badges.git
 cd pokedex
 ```
 
