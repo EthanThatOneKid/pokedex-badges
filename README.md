@@ -1,4 +1,4 @@
-# Pokédex Badges 🦕
+# Pokédex Badges [🦕][project_url]
 
 > An application for generating images of a Pokémon's Pokédex entry.
 
@@ -34,3 +34,5 @@ Below is a demo badge for my favorite Pokémon, Porygon at [`pokedex.deno.dev/po
 ---
 
 Developed with 💖 by [EthanThatOneKid](https://github.com/EthanThatOneKid/)
+
+[project_url]: https://dash.deno.com/projects/5aad91f7-3665-4586-86a5-ff9942ce4bfa
