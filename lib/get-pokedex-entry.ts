@@ -14,18 +14,20 @@ export const getPokedexEntry = async (
   language: string = "en",
 ): Promise<PokedexEntry | null> => {
   logMetrics();
-  const lowerCasePokemon = pokemon.toLowerCase();
+  pokemon = pokemon.slice(1).toLowerCase();
   if (pokemon === "random") {
-    pokemon = String(Math.floor(Math.random() * lastPokedexNumber) + 1)
+    pokemon = String(
+      Math.floor(Math.random() * lastPokedexNumber) + 1,
+    );
   }
-  if (entries.has(lowerCasePokemon)) {
+  if (entries.has(pokemon)) {
     requestsFetchedFromCache++;
-    return entries.get(lowerCasePokemon) ?? null;
+    return entries.get(pokemon) ?? null;
   }
   try {
     const data = await fetchPokedexData(pokemon);
     const formattedData = formatPokedexData(data, language);
-    entries.set(lowerCasePokemon, formattedData);
+    entries.set(pokemon, formattedData);
     return formattedData;
   } catch {
     return null;
