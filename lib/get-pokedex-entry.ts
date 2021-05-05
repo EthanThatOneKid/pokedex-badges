@@ -7,6 +7,7 @@ export interface PokedexEntry {
 let requestsRecieved = 0;
 let requestsFetchedFromCache = 0;
 const entries = new Map<string, PokedexEntry>();
+const lastPokedexNumber = 898;
 
 export const getPokedexEntry = async (
   pokemon: string,
@@ -14,6 +15,9 @@ export const getPokedexEntry = async (
 ): Promise<PokedexEntry | null> => {
   logMetrics();
   const lowerCasePokemon = pokemon.toLowerCase();
+  if (pokemon === "random") {
+    pokemon = String(Math.floor(Math.random() * lastPokedexNumber) + 1)
+  }
   if (entries.has(lowerCasePokemon)) {
     requestsFetchedFromCache++;
     return entries.get(lowerCasePokemon) ?? null;
